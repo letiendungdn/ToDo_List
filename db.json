@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "id": 1631588353549,
+      "content": "asdasda",
+      "isCompleted": false
+    },
+    {
+      "id": 1631588355627,
+      "content": "asdasd",
+      "isCompleted": false
+    },
+    {
+      "id": 1631681026132,
+      "content": "Dung 12",
+      "isCompleted": false
+    }
+  ],
+  "users": [
+    {
+      "email": "test",
+      "password": "test"
+    }
+  ]
+}
