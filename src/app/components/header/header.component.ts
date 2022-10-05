@@ -4,16 +4,14 @@ import { TodoService } from 'src/app/services/todo.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  constructor(private todoService: TodoService) {}
 
-  constructor(private todoService: TodoService) { }
-
-  ngOnInit(): void {
-  }
-  toggleAll(){
+  ngOnInit(): void {}
+  toggleAll() {
     this.todoService.toggleAll();
   }
-  content: string = "content";
+  content: string = 'content';
 }

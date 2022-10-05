@@ -1,14 +1,20 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Todo } from 'src/app/models/todo.model';
 
-const fadeStrikeThroughAnimation = trigger('fadeStrikeThrough',[
+const fadeStrikeThroughAnimation = trigger('fadeStrikeThrough', [
   state(
     'active',
     style({
       fontSize: '18px',
-      color: 'black'
-    }),
+      color: 'black',
+    })
   ),
   state(
     'complete',
@@ -16,16 +22,16 @@ const fadeStrikeThroughAnimation = trigger('fadeStrikeThrough',[
       fontSize: '17px',
       color: 'lightgrey',
       textDecoration: 'line-through',
-    }),
+    })
   ),
-  transition('active <=> complete', [animate(250)])
-])
+  transition('active <=> complete', [animate(250)]),
+]);
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.scss'],
-  animations: [fadeStrikeThroughAnimation]
+  animations: [fadeStrikeThroughAnimation],
 })
 export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
@@ -36,24 +42,25 @@ export class TodoItemComponent implements OnInit {
   isHovered = false;
   isEditing = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-  submitEdit(event: KeyboardEvent){
-    const {keyCode} = event;
+  ngOnInit(): void {}
+  submitEdit(event: KeyboardEvent) {
+    const { keyCode } = event;
     event.preventDefault();
-    if(keyCode === 13){
+    if (keyCode === 13) {
       this.editTodo.emit(this.todo);
       this.isEditing = false;
     }
   }
 
-  changeTodoStatus(){
-    this.changeStatus.emit({...this.todo,isCompleted: !this.todo.isCompleted});
+  changeTodoStatus() {
+    this.changeStatus.emit({
+      ...this.todo,
+      isCompleted: !this.todo.isCompleted,
+    });
   }
   removeTodo() {
     this.deleteTodo.emit(this.todo);
   }
-
 }

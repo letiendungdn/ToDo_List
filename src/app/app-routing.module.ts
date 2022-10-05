@@ -8,12 +8,12 @@ import { LoginComponent } from './login/login.component';
 import { ArticleGuard } from './guard/guard.service';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'home', component: HomeComponent, canActivate: [ArticleGuard]}
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomeComponent, canActivate: [ArticleGuard] },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

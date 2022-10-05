@@ -6,17 +6,20 @@ import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   username: string;
   password: string;
-  constructor(private readonly router: Router, private readonly storage: LocalStorageService, private readonly cookieService: CookieService) { }
+  constructor(
+    private readonly router: Router,
+    private readonly storage: LocalStorageService,
+    private readonly cookieService: CookieService
+  ) {}
 
-  ngOnInit(): void {
-  }
-  login(){
-    if(this.username==="test" && this.password==="test"){
+  ngOnInit(): void {}
+  login() {
+    if (this.username === 'test' && this.password === 'test') {
       this.cookieService.set(this.username, this.password);
       this.storage.set(this.username, this.password);
       this.router.navigate(['/home']);
